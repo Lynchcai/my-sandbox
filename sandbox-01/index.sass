@@ -1,0 +1,26 @@
+*
+    margin: 0
+    padding: 0
+.container
+    --container_width: 400px
+    --img_clip_path: calc(var(--container_width)/2)
+    width: var(--container_width)
+    height: 528px
+    position: relative
+    .bar
+        --bar_width: 8px
+        position: absolute
+        transform: translateX(calc(200px - var(--bar_width)/2))
+        width: var(--bar_width) 
+        height: inherit
+        background: #fff
+        cursor: pointer
+    .img
+        position: absolute
+        top: 0
+        left: 0
+        width: 100%
+    .img01
+        clip-path: polygon(0 0, var(--img_clip_path) 0, var(--img_clip_path) 100%, 0% 100%)
+    .img02
+        clip-path: polygon(100% 0, var(--img_clip_path) 0, var(--img_clip_path) 100%, 100% 100%)
