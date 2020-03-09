@@ -2,28 +2,99 @@
     margin: 0
     padding: 0
 
-.container
-    --container_width: 400px
-    --img_clip_path: calc(var(--container_width)/2)
-    margin: auto
-    width: var(--container_width)
-    height: 528px
-    position: relative
-    .bar
-        --bar_width: 8px
-        position: absolute
-        transform: translateX(calc(200px - var(--bar_width)/2))
-        width: var(--bar_width) 
-        height: inherit
-        background: #fff
-        cursor: pointer
-    .img
-        position: absolute
-        top: 0
-        left: 0
-        width: 100%
-        user-select: none
-    .img01
-        clip-path: polygon(0 0, var(--img_clip_path) 0, var(--img_clip_path) 100%, 0% 100%)
-    .img02
-        clip-path: polygon(100% 0, var(--img_clip_path) 0, var(--img_clip_path) 100%, 100% 100%)
+body
+    background: #0B0E14
+    height: 100vh
+    width: 100vw
+    display: flex
+    align-content: center
+    justify-content: center
+
+
+    // Re usable part start here:
+    .lc_before_after_container
+        --container_width: 500px
+        --bar_width: 4px
+        --circle_width: 48px
+        --triangle_width: 10px
+        --img_clip_path: calc(var(--container_width)/2)
+        --shadow_intensity: 0.5
+        margin: auto
+        width: var(--container_width)
+        height: 750px
+        position: relative
+        overflow: hidden
+        &:hover
+            .lc_before_after_bar
+                .lc_before_after_circle
+                    &::before
+                        opacity: 1
+                    &::after
+                        opacity: 1
+
+        .lc_before_after_bar
+            position: absolute
+            transform: translateX(calc(var(--container_width)/2 - var(--bar_width)/2))
+            width: var(--bar_width) 
+            height: inherit
+            cursor: pointer
+            display: flex
+            background: #000000, 0
+            justify-content: center
+            align-items: center
+            // Bar top
+            &::before
+                content: ''
+                position: absolute
+                top: 0
+                background: #fff
+                width: var(--bar_width)
+                height: calc(50% - var(--circle_width)/2)
+            // Bar bottom
+            &::after
+                content: ''
+                position: absolute
+                bottom: 0
+                background: #fff
+                width: var(--bar_width)
+                height: calc(50% - var(--circle_width)/2)
+            // Circle
+            .lc_before_after_circle
+                position: absolute
+                width: var(--circle_width)
+                height: var(--circle_width)
+                border-radius: 50%
+                background: #ffffff00
+                border: solid 4px white
+                display: flex
+                justify-content: space-around
+                align-items: center
+                box-shadow: 0px 0px 25px 5px rgba(0, 0, 0, var(--shadow_intensity))
+                &::before
+                    content: ''
+                    width: var(--triangle_width)
+                    height: var(--triangle_width)
+                    background: #fff
+                    clip-path: polygon(100% 0, 100% 100%, 25% 50%)
+                    opacity: 0
+                    transition: opacity 0.1s ease
+                &::after
+                    content: ''
+                    width: var(--triangle_width)
+                    height: var(--triangle_width)
+                    background: #fff
+                    clip-path: polygon(0 0, 0 100%, 75% 50%)
+                    opacity: 0
+                    transition: opacity 0.1s ease
+
+        .lc_before_after_img
+            position: absolute
+            top: 0
+            left: 0
+            width: 100%
+            user-select: none
+        .lc_before_after_img01
+            clip-path: polygon(0 0, var(--img_clip_path) 0, var(--img_clip_path) 100%, 0% 100%)
+        .lc_before_after_img02
+            clip-path: polygon(100% 0, var(--img_clip_path) 0, var(--img_clip_path) 100%, 100% 100%)
+    // Re usable part end here
