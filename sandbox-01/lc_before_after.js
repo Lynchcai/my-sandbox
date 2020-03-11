@@ -29,16 +29,18 @@ const bar_mousemove = ()=>{
 const bar_mousemove_function = (_event)=>{
     const bounding = $lc_before_after_container.getBoundingClientRect()
     const cursorX = _event.clientX
-    let cut_pos = (cursorX - bounding.x)-($lc_before_after_bar.offsetWidth/2)
-    // if (cursorX < bounding.x) {
-    //     cut_pos = 0 - $lc_before_after_bar.offsetWidth/2
-    // }
-    // else if(cursorX > (bounding.x + bounding.width)){
-    //     cut_pos = bounding.width - $lc_before_after_bar.offsetWidth/2
-    // }
+    let cut_pos = (cursorX - bounding.x) - ($lc_before_after_bar.offsetWidth/2)
+    
+    
+    if (cursorX < bounding.x) {
+        cut_pos = 0 - $lc_before_after_bar.offsetWidth/2
+    }
+    else if(cursorX > (bounding.x + bounding.width)){
+        cut_pos = bounding.width - $lc_before_after_bar.offsetWidth/2
+    }
     $lc_before_after_bar.style.transform = `translateX(${cut_pos}px)`
-    $lc_before_after_img[0].style.clipPath = `polygon(0 0, ${cut_pos}px 0, ${cut_pos}px 100%, 0% 100%)`
-    $lc_before_after_img[1].style.clipPath = `polygon(100% 0, ${cut_pos}px 0, ${cut_pos}px 100%, 100% 100%)`
+    $lc_before_after_img[0].style.clipPath = `polygon(0 0, ${cut_pos+($lc_before_after_bar.offsetWidth/2)}px 0, ${cut_pos+($lc_before_after_bar.offsetWidth/2)}px 100%, 0% 100%)`
+    $lc_before_after_img[1].style.clipPath = `polygon(100% 0, ${cut_pos+($lc_before_after_bar.offsetWidth/2)}px 0, ${cut_pos+($lc_before_after_bar.offsetWidth/2)}px 100%, 100% 100%)`
 }
 
 

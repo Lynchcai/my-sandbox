@@ -13,15 +13,18 @@ body
 
     // Re usable part start here:
     .lc_before_after_container
-        --container_width: 500px
-        --bar_width: 4px
+        --container_width: 50vw
+        --container_height: 80vh
+        --bar_width: 2px
         --circle_width: 48px
+        --circle_border: 2px
         --triangle_width: 10px
-        --img_clip_path: calc(var(--container_width)/2)
         --shadow_intensity: 0.5
+
+        --img_clip_path: calc(var(--container_width)/2)
         margin: auto
         width: var(--container_width)
-        height: 750px
+        height: var(--container_height)
         position: relative
         overflow: hidden
         &:hover
@@ -50,6 +53,7 @@ body
                 background: #fff
                 width: var(--bar_width)
                 height: calc(50% - var(--circle_width)/2)
+                z-index: 100
             // Bar bottom
             &::after
                 content: ''
@@ -58,6 +62,7 @@ body
                 background: #fff
                 width: var(--bar_width)
                 height: calc(50% - var(--circle_width)/2)
+                z-index: 100
             // Circle
             .lc_before_after_circle
                 position: absolute
@@ -65,7 +70,7 @@ body
                 height: var(--circle_width)
                 border-radius: 50%
                 background: #ffffff00
-                border: solid 4px white
+                border: solid var(--circle_border) white
                 display: flex
                 justify-content: space-around
                 align-items: center
@@ -86,15 +91,16 @@ body
                     clip-path: polygon(0 0, 0 100%, 75% 50%)
                     opacity: 0
                     transition: opacity 0.1s ease
-
+        // Img
         .lc_before_after_img
             position: absolute
             top: 0
             left: 0
             width: 100%
+            object-fit: cover
             user-select: none
-        .lc_before_after_img01
-            clip-path: polygon(0 0, var(--img_clip_path) 0, var(--img_clip_path) 100%, 0% 100%)
-        .lc_before_after_img02
-            clip-path: polygon(100% 0, var(--img_clip_path) 0, var(--img_clip_path) 100%, 100% 100%)
+            &:nth-child(1)
+                clip-path: polygon(0 0, var(--img_clip_path) 0, var(--img_clip_path) 100%, 0% 100%)
+            &:nth-child(2)
+                clip-path: polygon(100% 0, var(--img_clip_path) 0, var(--img_clip_path) 100%, 100% 100%)
     // Re usable part end here
