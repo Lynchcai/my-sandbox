@@ -1,0 +1,50 @@
+*
+    padding: 0
+    margin: 0
+
+body
+    background: #0B0E14
+    height: 100vh
+    width: 100vw
+    display: flex
+    align-items: center
+    justify-content: center
+
+.lc_parallax_orbs_container
+    --container_width: 200px
+    --container_height: 300px
+    --img_width: 600px
+    --scale_power: 1.2
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    align-items: space-between
+    height: var(--container_height)
+    width: var(--container_width)
+    .lc_parallax_orbs_texts
+        height: 100px
+        text-align: center
+        display: flex
+        flex-direction: column
+        color: white
+    .lc_parallax_orbs_images
+        height: 200px
+        position: relative
+        border-radius: 50%
+        overflow: hidden
+        img
+            position: absolute
+            top: 0
+            left: 0
+            width: var(--img_width)
+            &:nth-child(2)
+                transform: translateX(calc(-1 * (var(--img_width) - var(--container_width)/2)))
+        &:hover
+            transform: var(--scale_power)
+            img
+                &:nth-child(1)
+                    transform: translateX(calc((var(--img_width) - var(--container_width))/-2))
+                &:nth-child(2)
+                    transform: translateX(0)
+                &:nth-child(3)
+                    transform: translateX(calc(-1 * (var(--img_width) - var(--container_width))))
