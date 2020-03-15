@@ -1,0 +1,34 @@
+body
+    background: #fff
+
+.sandboxes_container
+    --grid_gap: 50px
+    display: grid
+    width: calc(90vw - var(--grid_gap)*4)
+    grid-template-columns: 1fr 1fr 1fr
+    grid-gap: var(--grid_gap)
+    margin: 0 auto
+    background: #E6AF2E
+    padding: 20px
+    border-radius: 1rem
+    box-shadow: 0 0 50px 10px rgba(0, 0, 0, 0.8)
+
+    .sandbox_container
+        background: #0B0E14
+        height: calc(30vw - var(--grid_gap)*2)
+        cursor: pointer
+        overflow: hidden
+        display: flex
+        justify-content: center
+        align-items: center
+        border-radius: 1rem
+        text-decoration: none
+        img
+            width: inherit
+            height: inherit
+            transition: transform 0.5s ease
+        &:hover
+            img
+                transform: scale(1.2)
+
+

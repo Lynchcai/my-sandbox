@@ -1,11 +1,17 @@
 [
     {
-        "sandbox_name": "FCS",
-        "sandbox_img_url": "../images/projects/focusly/index_focusly.png"
+        "sandbox_name": "Before After",
+        "sandbox_desc": "Use HTML, CSS, JS native",
+        "sandbox_img_url": "sandbox-menu/images/sandbox_01.jpg"
     },
     {
-        "acronym": "JH",
-        "project_url": "https://www.jeanhuleu.fr/",
-        "background_url": "../images/projects/jeanhuleu/index_jeanhuleu.jpg"
+        "sandbox_name": "Parallax Orbs",
+        "sandbox_desc": "Use HTML, CSS",
+        "sandbox_img_url": "sandbox-menu/images/sandbox_02.jpg"
+    },
+    {
+        "sandbox_name": "null",
+        "sandbox_desc": "Use HTML, CSS",
+        "sandbox_img_url": "sandbox-menu/images/sandbox_03.jpg"
     }
 ]
