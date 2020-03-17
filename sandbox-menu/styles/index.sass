@@ -1,0 +1,58 @@
+body
+    background: #FEEADD
+
+.sandboxes_container
+    --grid_gap: 50px
+    --sandboxes_width: 80vw
+    display: grid
+    width: calc(var(--sandboxes_width) - var(--grid_gap)*4)
+    grid-template-columns: 1fr 1fr 1fr
+    grid-gap: var(--grid_gap)
+    margin: 10vh auto
+    background: #FEFEFE
+    padding: 3rem
+    border-radius: 12rem
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2)
+    .sandbox_container
+        position: relative
+        height: calc(var(--sandboxes_width)/3 - var(--grid_gap)*2)
+        width: calc(var(--sandboxes_width)/3 - var(--grid_gap)*2)
+        cursor: pointer
+        overflow: hidden
+        display: flex
+        justify-content: center
+        align-items: center
+        border-radius: 50%
+        text-decoration: none
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3)
+        color: #333
+        .sandbox_text_container
+            position: absolute
+            bottom: 0
+            height: calc((var(--sandboxes_width)/3 - var(--grid_gap)*2)/3)
+            width: inherit
+            border-radius: 50%
+            background: white
+            opacity: 0
+            transition: opacity 0.2s ease
+            will-change: opacity
+            display: flex
+            flex-direction: column
+            justify-content: flex-start
+            align-items: center
+            .sandbox_name
+                margin: 0.5rem
+                font-size: 1rem
+            .sandbox_description
+                margin: 0
+                font-size: 0.8rem
+        img
+            width: inherit
+            height: inherit
+            object-fit: cover
+            transition: transform 0.3s ease
+        &:hover
+            img
+                transform: scale(1.2)
+            .sandbox_text_container
+                opacity: 0.9
