@@ -1,0 +1,26 @@
+.sandbox_return
+    --container_width: 2rem
+    position: absolute
+    left: 2rem
+    top: 2rem
+    width: var(--container_width)
+    height: var(--container_width)
+    border: solid white 1px
+    border-radius: 50%
+    transform: rotate(45deg)
+    display: flex
+    justify-content: center
+    align-items: center
+    cursor: pointer
+    .sandbox_return_arrow
+        position: relative
+        mix-blend-mode: difference
+        width: calc(var(--container_width)/4)
+        height: calc(var(--container_width)/4)
+        border: solid white
+        border-width: 0px 0px 1px 1px
+        transition: background 0.1s ease, transform 0.1s ease
+    &:hover
+        .sandbox_return_arrow
+            background: white
+            transform: scale(0.8)
