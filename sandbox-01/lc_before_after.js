@@ -45,6 +45,6 @@ const bar_mousemove_function = (_event)=>{
 
 
 // STEP 1 : USER press down his mouse on $bar
-$lc_before_after_bar.addEventListener('mousedown', bar_mousemove)
+$lc_before_after_container.addEventListener('mousedown', bar_mousemove)
 
 // Re usable part end here
